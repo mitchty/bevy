@@ -213,6 +213,8 @@ fn update_plane_color(
             let material = r_materials.add(ColorPlaneMaterial {
                 plane: *plane,
                 fixed_channel: plane_value.0.z,
+    #[cfg(target_arch = "wasm32")]
+    _webgl2_padding: Vec3::Zero,
             });
             commands.entity(*inner_ent).insert(MaterialNode(material));
         }
