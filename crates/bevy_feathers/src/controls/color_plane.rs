@@ -92,6 +92,8 @@ impl From<&ColorPlaneMaterial> for ColorPlaneMaterialKey {
     fn from(material: &ColorPlaneMaterial) -> Self {
         Self {
             plane: material.plane,
+                        #[cfg(target_arch = "wasm32")]
+                        _webgl2_padding: Vec3::ZERO,
         }
     }
 }
