@@ -214,7 +214,7 @@ fn update_plane_color(
                 plane: *plane,
                 fixed_channel: plane_value.0.z,
     #[cfg(target_arch = "wasm32")]
-    _webgl2_padding: Vec3::Zero,
+    _webgl2_padding: Vec3::ZERO,
             });
             commands.entity(*inner_ent).insert(MaterialNode(material));
         }
