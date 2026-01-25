@@ -75,6 +75,8 @@ struct ColorPlaneDragState(bool);
 #[derive(Eq, PartialEq, Hash, Copy, Clone)]
 struct ColorPlaneMaterialKey {
     plane: ColorPlane,
+    #[cfg(target_arch = "wasm32")]
+    _webgl2_padding: Vec3,
 }
 
 #[derive(AsBindGroup, Asset, TypePath, Default, Debug, Clone)]
