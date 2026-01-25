@@ -84,6 +84,8 @@ struct ColorPlaneMaterial {
 
     #[uniform(0)]
     fixed_channel: f32,
+    #[cfg(target_arch = "wasm32")]
+    _webgl2_padding: Vec3,
 }
 
 impl From<&ColorPlaneMaterial> for ColorPlaneMaterialKey {
