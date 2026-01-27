@@ -8,7 +8,7 @@
 struct ColorPlaneUniform {
   fixed_channel : f32,
 #ifdef SIXTEEN_BYTE_ALIGNMENT
-  _padding : vec3<f32>,
+  _webgl2_padding_12b : vec3<f32>,
 #endif
 }
 
