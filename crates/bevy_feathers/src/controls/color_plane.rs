@@ -84,6 +84,10 @@ struct ColorPlaneMaterial {
 
     #[uniform(0)]
     fixed_channel: f32,
+
+    #[cfg(target_arch = "wasm32")]
+    #[uniform(0)]
+    _webgl2_padding: Vec3,
 }
 
 impl From<&ColorPlaneMaterial> for ColorPlaneMaterialKey {
@@ -207,6 +211,8 @@ fn update_plane_color(
             let material = r_materials.add(ColorPlaneMaterial {
                 plane: *plane,
                 fixed_channel: plane_value.0.z,
+                #[cfg(target_arch = "wasm32")]
+                _webgl2_padding: Vec3::ZERO,
             });
             commands.entity(*inner_ent).insert(MaterialNode(material));
         }
